@@ -24,11 +24,12 @@ Run this checklist after every factual, editorial, visual, or interaction change
 - [ ] Both certificate images are credited to Rich Stackhouse, added April 2, 2016.
 - [ ] The provenance caveat survives intact: Pennsylvania’s published indices independently establish the certificate numbers, while these full certificate images arrived through Find a Grave.
 - [ ] The certificate-number discrepancy is stated, not smoothed: the indices are cited for **63094** and **63095**, the images are stamped **62094** and **62095**, and the site records the conflict without resolving it. This appears in section 01, in section 08, and in the footers of claims 01, 02, and 08.
-- [ ] Jennie Monica’s birth date is presented as a three-way conflict — worn marker (final digit unclear), Find a Grave’s June 29, 1907, and the certificate copy’s apparent July 29, 1907 — with no date chosen. Wording stays cautious about the handwriting and the carving.
-- [ ] The certificate age arithmetic (19 years, 10 months) is offered as suggestive of a July birth, never as decisive, and notes that her father supplied the information two days after her death.
+- [ ] Jennie Monica’s birth date is presented as a conflict between two months, with no date chosen: the marker and Find a Grave both give **June 29, 1907**, and the certificate copy gives **July 29, 1907**.
+- [ ] The marker is described as legible. It reads BORN JUNE 29 1907 above DIED JUNE 2 1927, and nothing on the page calls the final digit of the birth year unclear.
+- [ ] The certificate age arithmetic (19 years, 10 months) is offered as pointing the same way as its July entry, never as decisive, and notes that her father supplied the information two days after her death.
 - [ ] Edith Fonzo’s marker is described as reading 1908–1927 only; her certificate copy’s blank birth-date field and age of 19 years, 5 months are stated as such.
 - [ ] The mothers’ maiden names (Rose Finno, Lena Fino) are offered as an observation about the documents, not as a proven cousin relationship.
-- [ ] Both certificate images sit inside collapsed `details` panels behind a content notice about clinical descriptions of fatal injuries. Summaries outside the panels stay non-graphic.
+- [ ] Both certificate images sit inside `details` panels that are **open by default**, behind a content notice about clinical descriptions of fatal injuries. The notice tells the reader the images are shown and that either panel can be collapsed. Summaries outside the panels stay non-graphic.
 
 ## 2. Static structure and assets
 
@@ -77,17 +78,18 @@ Run this checklist after every factual, editorial, visual, or interaction change
 - [ ] After selecting any claim filter, print preview still contains all 13 claims.
 - [ ] Memorial and closing sections print as dark text on white even when background graphics are disabled. This includes the grave gallery, captions, credits, date-conflict panel, record panels, and caveat list.
 - [ ] Grave photographs print at a readable size, three across, without splitting a figure across pages.
-- [ ] A certificate panel left collapsed on screen prints collapsed, with the substitute line “Panel collapsed on screen; certificate image not printed.” A panel opened on screen prints its image and transcription. This is intentional: printing should not surface the clinical injury descriptions without the reader’s choice.
+- [ ] Both panels are open by default, so both print in full by default. If a reader collapses one, it prints collapsed with the substitute line “Panel collapsed on screen; certificate image not printed.” This is intentional: printing follows the reader’s disclosure choice.
 - [ ] Claim cards do not retain a forced 19rem print height.
 - [ ] Source URLs appear in print and do not overlap neighboring text.
 - [ ] The full archival clipping is available through its direct local link even if the designed figure remains cropped.
 - [ ] Every external source link is opened and checked for the expected record; access barriers are noted rather than treated as proof that a source is missing.
 
-## 6. Release package
+## 6. Release
 
-- [ ] The ZIP contains the **contents** of this folder at its root, including `.nojekyll`, `archive/` with its `graves/` and `records/` subfolders, `QA-CHECKLIST.md`, `social-card.png`, and `social-card-source.svg`.
-- [ ] A fresh extraction contains no unexpected enclosing directory and all internal paths still resolve.
-- [ ] Archive integrity passes.
-- [ ] The ZIP byte size and SHA-256 in `Jennie-Monica-Edith-Fonzo-Project-Context.md` match the actual release file.
+This folder is the deliverable. No ZIP is built or maintained.
+
+- [ ] The folder contains `.nojekyll`, `archive/` with its `graves/` and `records/` subfolders, `index.html`, `styles.css`, `script.js`, `favicon.svg`, `social-card.png`, `social-card-source.svg`, `README.md`, and `QA-CHECKLIST.md`.
+- [ ] Uploading the **contents** of this folder — not the folder itself — puts `.nojekyll` and `index.html` at the repository root.
+- [ ] All internal paths are relative and resolve from a repository subpath.
 - [ ] The public deployment has an absolute canonical URL, `og:url`, and absolute social-image URL appropriate to that deployment.
 - [ ] The deployed page receives one final desktop, mobile, keyboard, print-preview, and social-preview check.

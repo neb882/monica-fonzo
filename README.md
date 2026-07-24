@@ -38,9 +38,11 @@ subdirectory. The source and research links remain external.
 
 ## Before each release
 
-Work through `QA-CHECKLIST.md`, regenerate `social-card.png` from
-`social-card-source.svg` if its source changes, and create the ZIP from the
-**contents** of this folder so `.nojekyll` remains at the archive root.
+Work through `QA-CHECKLIST.md` and regenerate `social-card.png` from
+`social-card-source.svg` if its source changes.
+
+This folder **is** the deliverable — upload its contents directly. No ZIP is
+built or maintained for this project.
 
 After the final public URL is known, replace relative canonical and social-image
 metadata with absolute deployment URLs and add `og:url`.
@@ -54,6 +56,7 @@ death-certificate images are credited to Rich Stackhouse (added April 2, 2016).
 **None of these copies was retrieved directly from a Pennsylvania archive**, and
 the page says so wherever they are used. Pennsylvania's published death indices
 independently establish the certificate numbers; the certificate images do not.
-The two certificate images are also collapsed behind a content notice on the page
-because they state, in clinical language, the injuries that killed both women.
-Keep that arrangement if the section is edited.
+The two certificate images sit behind a content notice on the page because they
+state, in clinical language, the injuries that killed both women. Their panels are
+open by default, and either can be collapsed from its heading. Keep the notice and
+the collapsible mechanism if the section is edited.
