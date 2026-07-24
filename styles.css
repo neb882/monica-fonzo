@@ -94,9 +94,17 @@ a:focus-visible {
   outline-offset: 4px;
 }
 
+/* `height: auto` is not optional here. Every img on this page carries width and
+   height attributes, which browsers map to a presentational hint of
+   `height: <n>px`. Without an explicit `height: auto`, that hint survives
+   alongside a CSS width and the image is stretched to the literal attribute
+   height. Rules that genuinely want a fixed height (the archive thumbnails)
+   are more specific and still win. */
 img {
   display: block;
+  width: auto;
   max-width: 100%;
+  height: auto;
 }
 
 .skip-link {
@@ -538,6 +546,7 @@ img {
 
 .portrait-frame img {
   width: 100%;
+  height: auto;
   filter: sepia(0.2) contrast(1.03);
 }
 

@@ -15,6 +15,7 @@ Run this checklist after every factual, editorial, visual, or interaction change
 - [ ] Jennie Monica’s inscription is treated as historical memorial language, not a forensic conclusion or the site’s moral judgment.
 - [ ] The death-index entries are not used to infer event sequence from consecutive certificate numbers.
 - [ ] Sensitive scene details remain restrained. Details visible only in later reporting are still separated from what the certificate copies themselves state.
+- [ ] The sister’s testimony is presented as a later account of what a witness said in 1927, not as a transcript, and is not used to place anyone at the scene of the killings.
 - [ ] Jennie and Edith remain the narrative center; collateral suspicion does not become proof.
 
 ### Archival image provenance (added with the memorial section)
@@ -23,7 +24,7 @@ Run this checklist after every factual, editorial, visual, or interaction change
 - [ ] Grave photographs are credited to Elena Castrignano, added April 19, 2013; the two Jennie Monica photographs are additionally noted as carrying an April 18 camera date stamp.
 - [ ] Both certificate images are credited to Rich Stackhouse, added April 2, 2016.
 - [ ] The provenance caveat survives intact: Pennsylvania’s published indices independently establish the certificate numbers, while these full certificate images arrived through Find a Grave.
-- [ ] The certificate-number discrepancy is stated, not smoothed: the indices are cited for **63094** and **63095**, the images are stamped **62094** and **62095**, and the site records the conflict without resolving it. This appears in section 01, in section 08, and in the footers of claims 01, 02, and 08.
+- [ ] The certificate-number discrepancy is stated, not smoothed: the indices are cited for **63094** and **63095**, the images are stamped **62094** and **62095**, and the site records the conflict without resolving it. This appears in section 01, in section 08, and in the footers of claims 01, 02, and 09.
 - [ ] Jennie Monica’s birth date is presented as a conflict between two months, with no date chosen: the marker and Find a Grave both give **June 29, 1907**, and the certificate copy gives **July 29, 1907**.
 - [ ] The marker is described as legible. It reads BORN JUNE 29 1907 above DIED JUNE 2 1927, and nothing on the page calls the final digit of the birth year unclear.
 - [ ] The certificate age arithmetic (19 years, 10 months) is offered as pointing the same way as its July entry, never as decisive, and notes that her father supplied the information two days after her death.
@@ -38,6 +39,7 @@ Run this checklist after every factual, editorial, visual, or interaction change
 - [ ] Every referenced local file exists with matching letter case.
 - [ ] All seven archival images and `social-card.png` load: two newspaper images, three in `archive/graves/`, two in `archive/records/`.
 - [ ] Images retain meaningful alternative text and explicit dimensions. Grave alt text describes the carving and its wording; certificate alt text describes the document and defers to the transcription list rather than reciting injuries.
+- [ ] **No image is stretched at any width.** Because every `img` carries `width` and `height` attributes, browsers apply a presentational hint of `height: <n>px`; any rule that sets a CSS width without also setting `height` will stretch the image to that literal attribute height. The global `img` rule declares `height: auto` to prevent this. Check by comparing each image's rendered box ratio against `naturalWidth / naturalHeight` at 375 px, 768 px, and desktop — allowing for `object-fit: contain` on the archive thumbnails, where the box is square by design and the painted image is letterboxed.
 - [ ] Every grave and certificate image links to its full-size local file, and each link opens in a new tab with `rel="noopener noreferrer"`.
 - [ ] The contents drawer lists six destinations, including **03 Graves & records** pointing at `#memorials`, and the numbering runs 01–06 in document order.
 - [ ] `social-card.png` is exactly 1200 × 630 pixels and was regenerated from `social-card-source.svg` without altering the archival portrait.
@@ -60,9 +62,9 @@ Run this checklist after every factual, editorial, visual, or interaction change
 ## 4. Claims, themes, and responsive layout
 
 - [ ] The timeline lists seven events, including **June 4, 1927 — Burial at St. Mary’s**.
-- [ ] Initial status reads “Showing 13 of 13 claims.”
-- [ ] Official shows 4 claims (01, 02, 08, 11); 1927 reporting shows 2; Later reporting shows 5; Unresolved shows 2.
-- [ ] Returning to All claims restores all 13 cards.
+- [ ] Initial status reads “Showing 14 of 14 claims.”
+- [ ] Official shows 4 claims (01, 02, 09, 12); 1927 reporting shows 2; Later reporting shows 6; Unresolved shows 2.
+- [ ] Returning to All claims restores all 14 cards.
 - [ ] The source list ends at **09 Find a Grave: Edith Fonzo**.
 - [ ] Light and dark themes render without unreadable muted, accent, label, or active-filter text. In dark theme the memorial section keeps a visible edge against the surrounding page.
 - [ ] Grave photographs are letterboxed rather than cropped: no inscription, cross, or carved date is cut off at any width.
@@ -75,7 +77,7 @@ Run this checklist after every factual, editorial, visual, or interaction change
 
 ## 5. Print and source transparency
 
-- [ ] After selecting any claim filter, print preview still contains all 13 claims.
+- [ ] After selecting any claim filter, print preview still contains all 14 claims.
 - [ ] Memorial and closing sections print as dark text on white even when background graphics are disabled. This includes the grave gallery, captions, credits, date-conflict panel, record panels, and caveat list.
 - [ ] Grave photographs print at a readable size, three across, without splitting a figure across pages.
 - [ ] Both panels are open by default, so both print in full by default. If a reader collapses one, it prints collapsed with the substitute line “Panel collapsed on screen; certificate image not printed.” This is intentional: printing follows the reader’s disclosure choice.
