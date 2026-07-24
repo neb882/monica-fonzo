@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title description">
+  <title id="title">Jennie Monica and Edith Fonzo social sharing card</title>
+  <desc id="description">The preserved 1927 archival portrait beside the project title and the words Documented does not mean solved.</desc>
+  <defs>
+    <clipPath id="portrait-clip">
+      <rect x="58" y="56" width="484" height="484" rx="2"/>
+    </clipPath>
+    <filter id="portrait-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#2d231b" flood-opacity=".22"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="630" fill="#f3eedf"/>
+  <rect width="1200" height="12" fill="#742934"/>
+  <rect x="0" y="12" width="600" height="618" fill="#e7dfca"/>
+  <path d="M600 12v618" stroke="#211d19" stroke-opacity=".22"/>
+
+  <g filter="url(#portrait-shadow)">
+    <rect x="42" y="40" width="516" height="516" fill="#faf7ee" stroke="#211d19" stroke-opacity=".35"/>
+    <image href="./archive/wb-record-1927.webp" x="58" y="56" width="484" height="484" preserveAspectRatio="xMidYMid slice" clip-path="url(#portrait-clip)"/>
+  </g>
+  <text x="42" y="594" fill="#5f574d" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="2.2">WILKES-BARRE RECORD · JUNE 3, 1927</text>
+
+  <text x="658" y="94" fill="#742934" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="700" letter-spacing="3.1">AN UNRESOLVED 1927 CASE</text>
+  <text x="654" y="188" fill="#211d19" font-family="Georgia, 'Times New Roman', serif" font-size="64">
+    <tspan x="654" dy="0">Jennie</tspan>
+    <tspan x="654" dy="70">Monica</tspan>
+  </text>
+  <text x="653" y="338" fill="#742934" font-family="Georgia, 'Times New Roman', serif" font-size="42" font-style="italic">&amp;</text>
+  <text x="654" y="409" fill="#211d19" font-family="Georgia, 'Times New Roman', serif" font-size="64">
+    <tspan x="654" dy="0">Edith Fonzo</tspan>
+  </text>
+
+  <path d="M658 470h420" stroke="#742934" stroke-width="3"/>
+  <text x="658" y="515" fill="#5f574d" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="700" letter-spacing="1.2">LUZERNE COUNTY, PENNSYLVANIA</text>
+  <text x="658" y="568" fill="#211d19" font-family="Georgia, 'Times New Roman', serif" font-size="27" font-style="italic">Documented does not mean solved.</text>
+</svg>
