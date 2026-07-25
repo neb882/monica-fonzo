@@ -1,0 +1,237 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-labelledby="mapTitle mapDesc" preserveAspectRatio="xMidYMid meet">
+<title id="mapTitle">Monica and Fonzo case geography, northeastern Pennsylvania</title>
+<desc id="mapDesc">An orientation map plotting the documented Wilkes-Barre home addresses of Jennie Monica and Edith Fonzo about a mile apart, the reported Rocky Glen meeting at Moosic, the reported Pittston theater plan, and the approximate Old Boston Settlement area near Inkerman where the bodies were found. Positions are plotted from coordinates on an equirectangular projection. Created for this site in 2026; it is not a period document.</desc>
+
+<defs>
+  <pattern id="hatch" width="9" height="9" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+    <line x1="0" y1="0" x2="0" y2="9" stroke="#C8A24A" stroke-width="1.4" stroke-opacity="0.55"/>
+  </pattern>
+  <linearGradient id="plate" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#1B1712"/>
+    <stop offset="0.55" stop-color="#15120E"/>
+    <stop offset="1" stop-color="#1E1913"/>
+  </linearGradient>
+  <linearGradient id="river" x1="0" y1="1" x2="1" y2="0">
+    <stop offset="0" stop-color="#2E4356"/>
+    <stop offset="1" stop-color="#3A5670"/>
+  </linearGradient>
+</defs>
+
+<style>
+  .plate-bg   { fill: url(#plate); }
+  .frame      { fill: none; stroke: #6B5B3E; stroke-width: 2; }
+  .frame-in   { fill: none; stroke: #6B5B3E; stroke-width: 1; stroke-opacity: 0.55; }
+  .grat       { stroke: #6B5B3E; stroke-width: 0.75; stroke-opacity: 0.2; fill: none; }
+  .riverline  { stroke: url(#river); stroke-width: 11; fill: none; stroke-linecap: round; stroke-opacity: 0.9; }
+  .move       { stroke: #C8A24A; stroke-width: 2.6; fill: none; stroke-linecap: round;
+                stroke-dasharray: 1 11; stroke-opacity: 0.95; }
+  .leader     { stroke: #C8A24A; stroke-width: 1.2; stroke-opacity: 0.75; fill: none; }
+  .doc-dot    { fill: #E0C075; stroke: #C8A24A; stroke-width: 2.5; }
+  .rep-ring   { fill: none; stroke: #E0C075; stroke-width: 2.8; }
+  .area       { fill: url(#hatch); stroke: #C8A24A; stroke-width: 1.6; stroke-opacity: 0.8; }
+  .box        { fill: #12100C; fill-opacity: 0.94; stroke: #8A7546; stroke-width: 1.2; }
+
+  text        { font-family: Georgia, "Times New Roman", Times, serif; fill: #EFE7D5; }
+  .t-title    { font-size: 34px; letter-spacing: 2.4px; fill: #F2EAD8; }
+  .t-sub      { font-size: 17px; letter-spacing: 4.2px; fill: #C8A24A;
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  .t-sub2     { font-size: 17px; font-style: italic; fill: #A9997E; }
+  .t-place    { font-size: 23px; letter-spacing: 2.6px; fill: #F0E8D6; }
+  .t-place-sm { font-size: 17px; letter-spacing: 2px; fill: #C4B698; }
+  .t-area     { font-size: 16px; letter-spacing: 1.2px; fill: #F0E8D6; }
+  .t-call     { font-size: 17px; fill: #E4DAC4; }
+  .t-call-em  { font-size: 17px; font-style: italic; fill: #C8A24A; }
+  .t-small    { font-size: 15px; fill: #A9997E;
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  .t-legend   { font-size: 15px; fill: #E4DAC4; }
+  .t-legend-h { font-size: 15px; letter-spacing: 3px; fill: #C8A24A;
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  .t-note     { font-size: 16px; fill: #B5A587; font-style: italic; }
+  .t-foot     { font-size: 14px; letter-spacing: 1.5px; fill: #94856D;
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  .t-river    { font-size: 16px; font-style: italic; fill: #8FA6BC; letter-spacing: 1.4px; }
+
+  /* Printing a near-black plate wastes ink and loses the fine gold rules, so the
+     plate inverts to ink-on-paper. Browsers that do not apply print media to an
+     embedded SVG simply keep the dark version, which still prints legibly. */
+  @media print {
+    .plate-bg  { fill: #ffffff; }
+    text       { fill: #1a1a1a; }
+    .t-title, .t-place, .t-area, .t-call, .t-legend { fill: #111111; }
+    .t-sub, .t-legend-h, .t-call-em { fill: #6B4A16; }
+    .t-sub2, .t-small, .t-note, .t-foot, .t-place-sm { fill: #444444; }
+    .t-river   { fill: #33556F; }
+    .frame, .frame-in, .leader { stroke: #555555; }
+    .grat      { stroke: #bbbbbb; stroke-opacity: 0.9; }
+    .box       { fill: #ffffff; fill-opacity: 1; stroke: #777777; }
+    .doc-dot   { fill: #6B4A16; stroke: #3A2708; }
+    .rep-ring  { stroke: #3A2708; }
+    .move      { stroke: #6B4A16; }
+    .area      { stroke: #6B4A16; }
+  }
+</style>
+
+<rect class="plate-bg" width="1600" height="900"/>
+<rect class="frame" x="16" y="16" width="1568" height="868"/>
+
+<!-- ══ Title block ══ -->
+<text class="t-title" x="52" y="74">MONICA &amp; FONZO CASE GEOGRAPHY</text>
+<text class="t-sub" x="54" y="104">NORTHEASTERN PENNSYLVANIA</text>
+<text class="t-sub2" x="54" y="132">documented and reported locations</text>
+
+<!-- ══════════ REGIONAL MAP ══════════
+     Equirectangular projection.
+       x = 620 + (lon + 75.905) × 3756.3      (3756.3 = 5000 × cos 41.30°)
+       y = 100 + (41.375 − lat) × 5000
+     5000 px per degree of latitude, so 1 mile = 72.8 px.
+     Plotted distances are within 0.6% of great-circle distance. -->
+<g>
+  <g class="grat">
+    <line x1="638.8" y1="100" x2="638.8" y2="800"/>
+    <line x1="714.0" y1="100" x2="714.0" y2="800"/>
+    <line x1="789.1" y1="100" x2="789.1" y2="800"/>
+    <line x1="864.2" y1="100" x2="864.2" y2="800"/>
+    <line x1="939.3" y1="100" x2="939.3" y2="800"/>
+    <line x1="1014.5" y1="100" x2="1014.5" y2="800"/>
+    <line x1="1089.6" y1="100" x2="1089.6" y2="800"/>
+    <line x1="1164.7" y1="100" x2="1164.7" y2="800"/>
+    <line x1="1239.8" y1="100" x2="1239.8" y2="800"/>
+    <line x1="1315.0" y1="100" x2="1315.0" y2="800"/>
+    <line x1="1390.1" y1="100" x2="1390.1" y2="800"/>
+    <line x1="620" y1="175" x2="1500" y2="175"/>
+    <line x1="620" y1="275" x2="1500" y2="275"/>
+    <line x1="620" y1="375" x2="1500" y2="375"/>
+    <line x1="620" y1="475" x2="1500" y2="475"/>
+    <line x1="620" y1="575" x2="1500" y2="575"/>
+    <line x1="620" y1="675" x2="1500" y2="675"/>
+    <line x1="620" y1="775" x2="1500" y2="775"/>
+  </g>
+
+  <!-- Susquehanna River, flowing south-west to north-east through the valley -->
+  <path class="riverline" d="M 657.6 800 C 690 730, 700 700, 706.4 675
+                             C 730 610, 760 560, 781.5 525
+                             C 830 460, 880 425, 909.2 400
+                             C 955 360, 995 330, 1021.9 310
+                             C 1060 275, 1090 240, 1108.3 215
+                             C 1130 185, 1148 155, 1157.2 135"/>
+  <text class="t-river" x="1100" y="220" transform="rotate(-58 1100 220)">Susquehanna River</text>
+
+  <!-- Approximate discovery area. No point marker: the exact spot is not established. -->
+  <ellipse class="area" cx="1183.4" cy="360" rx="86" ry="62"/>
+  <text class="t-area" x="1183.4" y="336" text-anchor="middle">OLD BOSTON</text>
+  <text class="t-area" x="1183.4" y="358" text-anchor="middle">SETTLEMENT</text>
+
+  <!-- Reported / associated movement, June 1: Wilkes-Barre → Pittston → discovery area.
+       Stops at the edge of the hatched area rather than at a point. -->
+  <path class="move" d="M 730 736 C 824 692, 946 470, 1038 370"/>
+  <path class="move" d="M 1070 338 C 1094 324, 1116 322, 1136 330"/>
+
+  <circle class="doc-dot" cx="709.0" cy="745.5" r="8"/>
+  <text class="t-place" x="709" y="716" text-anchor="middle">WILKES-BARRE</text>
+
+  <text class="t-place-sm" x="852" y="592" text-anchor="middle">PLAINS</text>
+
+  <!-- Pittston: reported theater plan -->
+  <circle class="rep-ring" cx="1053.5" cy="345.5" r="9"/>
+  <text class="t-place" x="1038" y="352" text-anchor="end">PITTSTON</text>
+  <path class="leader" d="M 1049 355 L 1006 432"/>
+  <rect class="box" x="742" y="432" width="264" height="60" rx="2"/>
+  <text class="t-call" x="874" y="456" text-anchor="middle">Reported theater plan —</text>
+  <text class="t-call" x="874" y="478" text-anchor="middle">exact theater not established</text>
+
+  <text class="t-place-sm" x="1160" y="452" text-anchor="middle">INKERMAN</text>
+
+  <!-- Discovery callout -->
+  <path class="leader" d="M 1250 396 L 1300 484"/>
+  <rect class="box" x="1216" y="484" width="300" height="112" rx="2"/>
+  <text class="t-call" x="1366" y="510" text-anchor="middle">Bodies discovered —</text>
+  <text class="t-call" x="1366" y="532" text-anchor="middle">Old Boston Settlement,</text>
+  <text class="t-call" x="1366" y="554" text-anchor="middle">Inkerman / Jenkins Twp.</text>
+  <text class="t-call-em" x="1366" y="578" text-anchor="middle">approximate area</text>
+
+  <!-- Moosic / Rocky Glen. No connector: it was a different day. -->
+  <circle class="rep-ring" cx="1358.9" cy="204.1" r="9"/>
+  <text class="t-place" x="1358.9" y="177" text-anchor="middle">MOOSIC</text>
+  <path class="leader" d="M 1358.9 213 L 1358.9 224"/>
+  <rect class="box" x="1244" y="224" width="296" height="86" rx="2"/>
+  <text class="t-call" x="1392" y="248" text-anchor="middle">Reported meeting: Rocky Glen</text>
+  <text class="t-call-em" x="1392" y="270" text-anchor="middle">Decoration Day, May 30</text>
+  <text class="t-small" x="1392" y="294" text-anchor="middle">41°21.25′N, 75°42.50′W</text>
+
+  <!-- North arrow -->
+  <g transform="translate(1534 118)">
+    <path d="M 0 -30 L 8 8 L 0 1 L -8 8 Z" fill="#E0C075" stroke="#C8A24A" stroke-width="1"/>
+    <text class="t-small" x="0" y="28" text-anchor="middle">N</text>
+  </g>
+
+  <!-- Scale bar: 1 mile = 72.8 px, so 5 miles = 364 px. Correct for this projection. -->
+  <g transform="translate(1140 676)">
+    <rect x="0" y="0" width="145.6" height="9" fill="#E0C075"/>
+    <rect x="145.6" y="0" width="145.6" height="9" fill="none" stroke="#E0C075" stroke-width="1.4"/>
+    <rect x="291.2" y="0" width="72.8" height="9" fill="#E0C075"/>
+    <text class="t-small" x="0" y="30" text-anchor="middle">0</text>
+    <text class="t-small" x="145.6" y="30" text-anchor="middle">2</text>
+    <text class="t-small" x="291.2" y="30" text-anchor="middle">4</text>
+    <text class="t-small" x="364" y="30" text-anchor="middle">5 mi</text>
+  </g>
+
+  <!-- ══ Legend, placed in the empty upper-left of the regional map ══ -->
+  <rect class="box" x="636" y="120" width="380" height="196" rx="2"/>
+  <text class="t-legend-h" x="656" y="148">LEGEND</text>
+  <line x1="656" y1="160" x2="996" y2="160" stroke="#6B5B3E" stroke-width="1"/>
+  <circle class="doc-dot" cx="668" cy="184" r="8"/>
+  <text class="t-legend" x="694" y="190">Documented address</text>
+  <circle class="rep-ring" cx="668" cy="218" r="9"/>
+  <text class="t-legend" x="694" y="224">Reported location</text>
+  <rect class="area" x="657" y="244" width="22" height="20"/>
+  <text class="t-legend" x="694" y="260">Approximate area — no point established</text>
+  <path class="move" d="M 657 288 L 681 288"/>
+  <text class="t-legend" x="694" y="294">Reported movement — route not established</text>
+</g>
+
+<!-- ══════════ WILKES-BARRE INSET ══════════
+     Local projection, 20370 px per degree of latitude.
+       x = 100 + (lon + 75.895) × 15303
+       y = 205 + (41.259 − lat) × 20370
+     Street layout is deliberately not drawn. -->
+<g>
+  <rect class="frame-in" x="52" y="176" width="496" height="580"/>
+  <text class="t-place" x="76" y="212">WILKES-BARRE</text>
+  <text class="t-small" x="76" y="234">CLOSE UP · ADDRESSES FROM THE DEATH CERTIFICATES</text>
+
+  <g class="grat">
+    <line x1="80" y1="252" x2="80" y2="700"/>
+    <line x1="233" y1="252" x2="233" y2="700"/>
+    <line x1="386" y1="252" x2="386" y2="700"/>
+    <line x1="520" y1="252" x2="520" y2="700"/>
+    <line x1="66" y1="286" x2="534" y2="286"/>
+    <line x1="66" y1="490" x2="534" y2="490"/>
+    <line x1="66" y1="694" x2="534" y2="694"/>
+  </g>
+
+  <path class="move" d="M 390.8 327.2 L 283.6 622.6"/>
+  <text class="t-note" x="352" y="472">about one mile</text>
+
+  <!-- Edith Fonzo, 368 N. Washington Street -->
+  <circle class="doc-dot" cx="390.8" cy="327.2" r="8"/>
+  <path class="leader" d="M 382 327 L 334 327"/>
+  <rect class="box" x="86" y="296" width="248" height="62" rx="2"/>
+  <text class="t-call" x="102" y="320">Edith Fonzo’s home —</text>
+  <text class="t-call" x="102" y="342">368 N. Washington St.</text>
+
+  <!-- Jennie Monica, 165 Moyallen Street -->
+  <circle class="doc-dot" cx="283.6" cy="622.6" r="8"/>
+  <path class="leader" d="M 292 623 L 320 623"/>
+  <rect class="box" x="320" y="592" width="216" height="62" rx="2"/>
+  <text class="t-call" x="336" y="616">Jennie Monica’s home —</text>
+  <text class="t-call" x="336" y="638">165 Moyallen St.</text>
+
+  <text class="t-note" x="76" y="730">Street layout not drawn; only the two addresses are plotted.</text>
+</g>
+
+<!-- ══════════ NOTES ══════════ -->
+<text class="t-note" x="52" y="812">Rocky Glen was Decoration Day, May 30. The drive that ended near Inkerman was June 1.</text>
+<text class="t-note" x="52" y="836">They are separate days, and no line joins them here.</text>
+
+<text class="t-foot" x="52" y="872">ILLUSTRATION CREATED FOR THIS SITE, 2026 · POSITIONS PLOTTED FROM COORDINATES · NOT A PERIOD DOCUMENT</text>
+</svg>

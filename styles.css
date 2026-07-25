@@ -844,9 +844,12 @@ img {
   display: block;
 }
 
+/* Keep this ratio in step with the plate's real pixel dimensions, and with the
+   width/height attributes in the markup. It reserves layout space before the
+   image loads; a stale value causes a visible reflow. */
 .case-map img {
   width: 100%;
-  aspect-ratio: 2048 / 682;
+  aspect-ratio: 1600 / 900;
 }
 
 .case-map-open {
@@ -939,6 +942,22 @@ img {
   font-size: 0.82rem;
   font-style: italic;
   line-height: 1.5;
+}
+
+.case-map-caption-text {
+  display: block;
+}
+
+/* The map is the only image on this page that is not an archival source, so it
+   carries an explicit made-for-this-site credit. Do not remove it. */
+.case-map-credit {
+  display: block;
+  max-width: 46rem;
+  margin-top: 0.45rem;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-style: normal;
+  line-height: 1.55;
 }
 
 .case-map-hint {

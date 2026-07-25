@@ -26,10 +26,8 @@ subdirectory. The source and research links remain external.
 - `script.js` — theme, contents drawer, reading progress, filters, and sharing
 - `archive/` — historical and case-geography imagery:
   - `wb-record-1927.webp` and `1927-wire-clip.jpg` — the two historical newspaper images
-  - `monica-fonzo-case-geography.webp` — optimized map served by modern browsers
-  - `monica-fonzo-case-geography.png` — full-quality fallback for the map
-
-The case-geography figure scales to the mobile viewport and opens an archival-style zoom viewer. The viewer opens at a useful enlarged scale on phones and includes a visible zoom percentage, fit control, mouse/touch panning, pinch zoom, keyboard shortcuts, and a clearly labeled close action.
+  - `monica-fonzo-case-geography.svg` — the case-geography map, drawn as vector so its
+    labels stay crisp at any zoom and print sharply
   - `archive/graves/` — three 2013 grave photographs (`jennie-monica-monument.jpg`,
     `jennie-monica-inscription.jpg`, `edith-fonzo-marker.jpg`)
   - `archive/records/` — two death-certificate copies
@@ -39,6 +37,14 @@ The case-geography figure scales to the mobile viewport and opens an archival-st
 - `QA-CHECKLIST.md` — factual, accessibility, print, responsive, and packaging checks
 - `favicon.svg` — browser icon
 - `.nojekyll` — tells GitHub Pages to serve the files without Jekyll processing
+
+### The case-geography figure
+
+The map is an SVG drawn for this project, not a photograph or a period document. Its
+labels are real text, so they stay legible at any zoom level. It scales to the mobile
+viewport and opens an archival-style zoom viewer. The viewer opens
+at a useful enlarged scale on phones and includes a visible zoom percentage, fit control,
+mouse/touch panning, pinch zoom, keyboard shortcuts, and a clearly labeled close action.
 
 ## Before each release
 

@@ -32,12 +32,29 @@ Run this checklist after every factual, editorial, visual, or interaction change
 - [ ] The mothers’ maiden names (Rose Finno, Lena Fino) are offered as an observation about the documents, not as a proven cousin relationship.
 - [ ] Both certificate images sit inside `details` panels that are **open by default**, behind a content notice about clinical descriptions of fatal injuries. The notice tells the reader the images are shown and that either panel can be collapsed. Summaries outside the panels stay non-graphic.
 
+### Case-geography map accuracy
+
+The map is the only image on this site that is **not** an archival source. It is an illustration made for the project, so its factual content is the project's responsibility, not a source's.
+
+It is an **SVG plotted from coordinates**, not a generated raster. Positions are computed, so they can be re-verified arithmetically rather than by eye, and the projection is documented in a comment above the regional-map group.
+
+- [ ] The caption, the dialog, and the plate's own footer all state that the map is an illustration created for this site in 2026 and is not a period document. Nothing anywhere describes it as a plate, a document, or an archival item.
+- [ ] Place order west to east is **Wilkes-Barre → Plains → Pittston → Inkerman → Old Boston → Moosic**. Rocky Glen's marker is at 41°21.25′N, 75°42.50′W, east *and* north of both Pittston and Inkerman.
+- [ ] Plotted separations stay within about 1% of great-circle distance. Wilkes-Barre to Pittston ≈ 7.3 mi, to Old Boston ≈ 8.5 mi, to Rocky Glen ≈ 11.7 mi.
+- [ ] The scale bar matches the projection: 1 mile = 72.8 px in viewBox units, so the 5-mile bar is 364 px.
+- [ ] Marker semantics match the legend. **Filled dot = documented address** (the two homes only). **Hollow ring = reported location** (Pittston, Moosic). **Hatched shape = approximate area with no point established** (Old Boston). No filled dot may sit on a place whose caption calls it reported.
+- [ ] The discovery area carries no point marker at all, because the exact spot is not established.
+- [ ] No street layout is drawn in the Wilkes-Barre inset, and no street name appears anywhere except in the two address callouts, which quote the death certificates.
+- [ ] No highway shields. They are anachronistic for 1927 and were a recurring source of error.
+- [ ] Rocky Glen and the Inkerman drive are **not joined by a line**, and the note saying they are separate days is present.
+- [ ] All map text is real SVG text, not paths — select it or search the page to confirm.
+
 ## 2. Static structure and assets
 
 - [ ] The page has exactly one `h1`, no duplicate IDs, and no skipped heading levels.
 - [ ] Every internal fragment link resolves to an existing ID.
 - [ ] Every referenced local file exists with matching letter case.
-- [ ] All image assets and `social-card.png` load: two newspaper images, the case-geography map in WebP and PNG formats, three images in `archive/graves/`, and two in `archive/records/`.
+- [ ] All image assets and `social-card.png` load: two newspaper images, `monica-fonzo-case-geography.svg`, three images in `archive/graves/`, and two in `archive/records/`.
 - [ ] Images retain meaningful alternative text and explicit dimensions. The case-geography map alt text summarizes its documented, reported, and approximate locations; grave alt text describes the carving and its wording; certificate alt text describes the document and defers to the transcription list rather than reciting injuries.
 - [ ] **No image is stretched at any width.** Because every `img` carries `width` and `height` attributes, browsers apply a presentational hint of `height: <n>px`; any rule that sets a CSS width without also setting `height` will stretch the image to that literal attribute height. The global `img` rule declares `height: auto` to prevent this. Check by comparing each image's rendered box ratio against `naturalWidth / naturalHeight` at 375 px, 768 px, and desktop — allowing for `object-fit: contain` on the archive thumbnails, where the box is square by design and the painted image is letterboxed.
 - [ ] Every grave and certificate image links to its full-size local file, and each link opens in a new tab with `rel="noopener noreferrer"`.
