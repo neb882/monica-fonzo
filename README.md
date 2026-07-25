@@ -24,8 +24,10 @@ subdirectory. The source and research links remain external.
 - `index.html` — complete page markup and metadata
 - `styles.css` — responsive, dark-theme, reduced-motion, and print styles
 - `script.js` — theme, contents drawer, reading progress, filters, and sharing
-- `archive/` — seven archival images:
+- `archive/` — historical and case-geography imagery:
   - `wb-record-1927.webp` and `1927-wire-clip.jpg` — the two historical newspaper images
+  - `monica-fonzo-case-geography.webp` — optimized map served by modern browsers
+  - `monica-fonzo-case-geography.png` — full-quality fallback for the map
   - `archive/graves/` — three 2013 grave photographs (`jennie-monica-monument.jpg`,
     `jennie-monica-inscription.jpg`, `edith-fonzo-marker.jpg`)
   - `archive/records/` — two death-certificate copies
@@ -41,8 +43,9 @@ subdirectory. The source and research links remain external.
 Work through `QA-CHECKLIST.md` and regenerate `social-card.png` from
 `social-card-source.svg` if its source changes.
 
-This folder **is** the deliverable — upload its contents directly. No ZIP is
-built or maintained for this project.
+This folder **is** the deployable site — upload its contents directly. A ZIP may
+be used as a transfer package, but `.nojekyll` and `index.html` must end up at the
+repository root.
 
 After the final public URL is known, replace relative canonical and social-image
 metadata with absolute deployment URLs and add `og:url`.

@@ -37,8 +37,8 @@ Run this checklist after every factual, editorial, visual, or interaction change
 - [ ] The page has exactly one `h1`, no duplicate IDs, and no skipped heading levels.
 - [ ] Every internal fragment link resolves to an existing ID.
 - [ ] Every referenced local file exists with matching letter case.
-- [ ] All seven archival images and `social-card.png` load: two newspaper images, three in `archive/graves/`, two in `archive/records/`.
-- [ ] Images retain meaningful alternative text and explicit dimensions. Grave alt text describes the carving and its wording; certificate alt text describes the document and defers to the transcription list rather than reciting injuries.
+- [ ] All image assets and `social-card.png` load: two newspaper images, the case-geography map in WebP and PNG formats, three images in `archive/graves/`, and two in `archive/records/`.
+- [ ] Images retain meaningful alternative text and explicit dimensions. The case-geography map alt text summarizes its documented, reported, and approximate locations; grave alt text describes the carving and its wording; certificate alt text describes the document and defers to the transcription list rather than reciting injuries.
 - [ ] **No image is stretched at any width.** Because every `img` carries `width` and `height` attributes, browsers apply a presentational hint of `height: <n>px`; any rule that sets a CSS width without also setting `height` will stretch the image to that literal attribute height. The global `img` rule declares `height: auto` to prevent this. Check by comparing each image's rendered box ratio against `naturalWidth / naturalHeight` at 375 px, 768 px, and desktop — allowing for `object-fit: contain` on the archive thumbnails, where the box is square by design and the painted image is letterboxed.
 - [ ] Every grave and certificate image links to its full-size local file, and each link opens in a new tab with `rel="noopener noreferrer"`.
 - [ ] The contents drawer lists six destinations, including **03 Graves & records** pointing at `#memorials`, and the numbering runs 01–06 in document order.
@@ -69,6 +69,7 @@ Run this checklist after every factual, editorial, visual, or interaction change
 - [ ] Light and dark themes render without unreadable muted, accent, label, or active-filter text. In dark theme the memorial section keeps a visible edge against the surrounding page.
 - [ ] Grave photographs are letterboxed rather than cropped: no inscription, cross, or carved date is cut off at any width.
 - [ ] The date-conflict panel, record panels, and fact lists reflow to one column on narrow screens without horizontal scrolling.
+- [ ] The case-geography map fills the available desktop width. At 800 px and below, only its focusable map viewport scrolls horizontally, the rest of the page does not, and the scroll instruction is visible.
 - [ ] No label or supporting text is smaller than 0.75rem.
 - [ ] Theme preference persists after reload when storage is available.
 - [ ] Layout remains usable at approximately 375 px, 768 px, and desktop width.
@@ -79,6 +80,7 @@ Run this checklist after every factual, editorial, visual, or interaction change
 
 - [ ] After selecting any claim filter, print preview still contains all 14 claims.
 - [ ] Memorial and closing sections print as dark text on white even when background graphics are disabled. This includes the grave gallery, captions, credits, date-conflict panel, record panels, and caveat list.
+- [ ] The case-geography map scales to the printable width without horizontal clipping or retaining its screen-only scroll instruction.
 - [ ] Grave photographs print at a readable size, three across, without splitting a figure across pages.
 - [ ] Both panels are open by default, so both print in full by default. If a reader collapses one, it prints collapsed with the substitute line “Panel collapsed on screen; certificate image not printed.” This is intentional: printing follows the reader’s disclosure choice.
 - [ ] Claim cards do not retain a forced 19rem print height.
@@ -90,7 +92,7 @@ Run this checklist after every factual, editorial, visual, or interaction change
 
 This folder is the deliverable. No ZIP is built or maintained.
 
-- [ ] The folder contains `.nojekyll`, `archive/` with its `graves/` and `records/` subfolders, `index.html`, `styles.css`, `script.js`, `favicon.svg`, `social-card.png`, `social-card-source.svg`, `README.md`, and `QA-CHECKLIST.md`.
+- [ ] The folder contains `.nojekyll`, `archive/` with its map files plus `graves/` and `records/` subfolders, `index.html`, `styles.css`, `script.js`, `favicon.svg`, `social-card.png`, `social-card-source.svg`, `README.md`, and `QA-CHECKLIST.md`.
 - [ ] Uploading the **contents** of this folder — not the folder itself — puts `.nojekyll` and `index.html` at the repository root.
 - [ ] All internal paths are relative and resolve from a repository subpath.
 - [ ] The public deployment has an absolute canonical URL, `og:url`, and absolute social-image URL appropriate to that deployment.
