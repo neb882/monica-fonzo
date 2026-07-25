@@ -69,7 +69,7 @@ Run this checklist after every factual, editorial, visual, or interaction change
 - [ ] Light and dark themes render without unreadable muted, accent, label, or active-filter text. In dark theme the memorial section keeps a visible edge against the surrounding page.
 - [ ] Grave photographs are letterboxed rather than cropped: no inscription, cross, or carved date is cut off at any width.
 - [ ] The date-conflict panel, record panels, and fact lists reflow to one column on narrow screens without horizontal scrolling.
-- [ ] The case-geography map fills the available desktop width. At 800 px and below, only its focusable map viewport scrolls horizontally, the rest of the page does not, and the scroll instruction is visible.
+- [ ] The case-geography map fills the available desktop width. On mobile it scales to the viewport, exposes an obvious “Open zoomable map” affordance, and opens an archival-style dialog at an enlarged mobile starting scale, with working plus/minus/fit controls, zoom readout, drag-to-pan, pinch zoom, keyboard zoom shortcuts, backdrop/Escape dismissal, and focus restoration.
 - [ ] No label or supporting text is smaller than 0.75rem.
 - [ ] Theme preference persists after reload when storage is available.
 - [ ] Layout remains usable at approximately 375 px, 768 px, and desktop width.
@@ -80,7 +80,7 @@ Run this checklist after every factual, editorial, visual, or interaction change
 
 - [ ] After selecting any claim filter, print preview still contains all 14 claims.
 - [ ] Memorial and closing sections print as dark text on white even when background graphics are disabled. This includes the grave gallery, captions, credits, date-conflict panel, record panels, and caveat list.
-- [ ] The case-geography map scales to the printable width without horizontal clipping or retaining its screen-only scroll instruction.
+- [ ] The case-geography map scales to the printable width without horizontal clipping or retaining its screen-only zoom affordances.
 - [ ] Grave photographs print at a readable size, three across, without splitting a figure across pages.
 - [ ] Both panels are open by default, so both print in full by default. If a reader collapses one, it prints collapsed with the substitute line “Panel collapsed on screen; certificate image not printed.” This is intentional: printing follows the reader’s disclosure choice.
 - [ ] Claim cards do not retain a forced 19rem print height.

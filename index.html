@@ -215,17 +215,73 @@
 <p>Edith did not appear the next morning for her shift at the Wyoming Valley Lace Mills—the works her death certificate would describe simply as a silk mill.</p>
 </div>
 <figure class="case-map" id="case-geography">
-<div class="case-map-scroll" tabindex="0" role="region" aria-label="Scrollable case geography map">
+<div class="case-map-preview" data-open-case-map>
 <picture>
 <source srcset="./archive/monica-fonzo-case-geography.webp" type="image/webp">
 <img src="./archive/monica-fonzo-case-geography.png" alt="Map showing the cousins’ documented Wilkes-Barre home addresses, the reported Rocky Glen meeting in Moosic, the reported Pittston theater plan, and the approximate Old Boston Settlement discovery area near Inkerman" width="2048" height="682" loading="lazy" decoding="async">
 </picture>
+<button class="case-map-open" type="button" aria-haspopup="dialog" aria-controls="case-map-dialog">
+<span class="case-map-open-icon" aria-hidden="true">
+<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="10.5" cy="10.5" r="5.5"></circle>
+<path d="m15 15 5 5M10.5 8v5M8 10.5h5"></path>
+</svg>
+</span>
+<span class="case-map-open-copy">
+<strong>Open zoomable map</strong>
+<small>Tap to inspect the evidence geography</small>
+</span>
+</button>
 </div>
 <figcaption>
 <span>Documented and reported locations; the precise route and discovery point are not established.</span>
-<span class="case-map-hint">Scroll horizontally to inspect the map.</span>
+<span class="case-map-hint">Open the map to zoom, pan, and inspect its labels.</span>
 </figcaption>
 </figure>
+<dialog class="case-map-dialog" id="case-map-dialog" aria-labelledby="case-map-dialog-title" aria-describedby="case-map-dialog-description">
+<div class="case-map-dialog-shell">
+<div class="case-map-dialog-register" aria-hidden="true">
+<span>Archive plate 02</span>
+<span>Wilkes-Barre · Moosic · Pittston · Inkerman</span>
+</div>
+<header class="case-map-dialog-header">
+<div class="case-map-dialog-heading">
+<p class="case-map-dialog-eyebrow">Case geography · 1927</p>
+<h3 id="case-map-dialog-title">Documented and reported locations</h3>
+<p class="case-map-dialog-note" id="case-map-dialog-description">A cartographic reconstruction of the cousins’ homes, reported movements, and approximate discovery area.</p>
+</div>
+<button class="case-map-dialog-close" type="button" data-close-case-map aria-label="Close map viewer">
+<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+<path d="M6 6l12 12M18 6 6 18"></path>
+</svg>
+<span>Close</span>
+</button>
+</header>
+<div class="case-map-dialog-controls">
+<p class="case-map-dialog-instruction">
+<svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M12 2v20M2 12h20M12 2l-3 3M12 2l3 3M12 22l-3-3M12 22l3-3M2 12l3-3M2 12l3 3M22 12l-3-3M22 12l-3 3"></path>
+</svg>
+<span>Drag to pan · pinch or use the controls to zoom</span>
+</p>
+<div class="case-map-toolbar" role="toolbar" aria-label="Map zoom controls">
+<button class="case-map-tool case-map-tool-icon" type="button" data-map-zoom="out" aria-label="Zoom out">−</button>
+<output class="case-map-zoom-readout" data-map-zoom-readout aria-live="polite">100%</output>
+<button class="case-map-tool case-map-tool-icon" type="button" data-map-zoom="in" aria-label="Zoom in">+</button>
+<button class="case-map-tool case-map-tool-fit" type="button" data-map-zoom="reset">Fit map</button>
+</div>
+</div>
+<div class="case-map-dialog-viewport" tabindex="0" role="region" aria-label="Zoomable case geography map">
+<div class="case-map-dialog-stage">
+<img class="case-map-dialog-image" src="./archive/monica-fonzo-case-geography.png" alt="Map showing the cousins’ documented Wilkes-Barre home addresses, the reported Rocky Glen meeting in Moosic, the reported Pittston theater plan, and the approximate Old Boston Settlement discovery area near Inkerman" width="2048" height="682" decoding="async" draggable="false">
+</div>
+</div>
+<footer class="case-map-dialog-footer">
+<span>Documented addresses · reported locations · approximate historical area</span>
+<span>Route and precise discovery point not established</span>
+</footer>
+</div>
+</dialog>
 </section>
 <section class="story-section">
 <header class="section-title">

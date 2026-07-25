@@ -28,6 +28,8 @@ subdirectory. The source and research links remain external.
   - `wb-record-1927.webp` and `1927-wire-clip.jpg` — the two historical newspaper images
   - `monica-fonzo-case-geography.webp` — optimized map served by modern browsers
   - `monica-fonzo-case-geography.png` — full-quality fallback for the map
+
+The case-geography figure scales to the mobile viewport and opens an archival-style zoom viewer. The viewer opens at a useful enlarged scale on phones and includes a visible zoom percentage, fit control, mouse/touch panning, pinch zoom, keyboard shortcuts, and a clearly labeled close action.
   - `archive/graves/` — three 2013 grave photographs (`jennie-monica-monument.jpg`,
     `jennie-monica-inscription.jpg`, `edith-fonzo-marker.jpg`)
   - `archive/records/` — two death-certificate copies

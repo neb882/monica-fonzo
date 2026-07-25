@@ -244,6 +244,267 @@
     button.addEventListener("click", () => filterClaims(button));
   });
 
+  const caseMapDialog = document.getElementById("case-map-dialog");
+  const caseMapPreview = document.querySelector(".case-map-preview");
+  const caseMapOpenButton = document.querySelector(".case-map-open");
+  const caseMapCloseButton = document.querySelector("[data-close-case-map]");
+  const caseMapZoomButtons = Array.from(document.querySelectorAll("[data-map-zoom]"));
+  const caseMapZoomReadout = document.querySelector("[data-map-zoom-readout]");
+  const caseMapViewport = document.querySelector(".case-map-dialog-viewport");
+  const caseMapImage = document.querySelector(".case-map-dialog-image");
+  const caseMapPointers = new Map();
+  let caseMapPreviousFocus = null;
+  let caseMapZoom = 1;
+  let caseMapPanStart = null;
+  let caseMapPinchStart = null;
+  const caseMapZoomMin = 1;
+  const caseMapZoomMax = 4;
+  const caseMapZoomStep = 0.25;
+
+  function clampCaseMapZoom(value) {
+    return Math.min(caseMapZoomMax, Math.max(caseMapZoomMin, value));
+  }
+
+  function caseMapBaseWidth() {
+    if (!(caseMapViewport instanceof HTMLElement)) return 0;
+    return Math.max(caseMapViewport.clientWidth - 32, 240);
+  }
+
+  function updateCaseMapControls() {
+    if (caseMapZoomReadout instanceof HTMLOutputElement) {
+      caseMapZoomReadout.value = Math.round(caseMapZoom * 100) + "%";
+      caseMapZoomReadout.textContent = caseMapZoomReadout.value;
+    }
+    caseMapZoomButtons.forEach((button) => {
+      if (!(button instanceof HTMLButtonElement)) return;
+      const action = button.dataset.mapZoom;
+      if (action === "in") button.disabled = caseMapZoom >= caseMapZoomMax;
+      if (action === "out") button.disabled = caseMapZoom <= caseMapZoomMin;
+      if (action === "reset") button.disabled = caseMapZoom === 1;
+    });
+  }
+
+  function setCaseMapZoom(nextZoom, options = {}) {
+    if (!(caseMapViewport instanceof HTMLElement) || !(caseMapImage instanceof HTMLElement)) return;
+
+    const zoom = clampCaseMapZoom(nextZoom);
+    const oldRect = caseMapImage.getBoundingClientRect();
+    const anchorX = options.anchorX ?? caseMapViewport.clientWidth / 2;
+    const anchorY = options.anchorY ?? caseMapViewport.clientHeight / 2;
+    const oldScrollableWidth = Math.max(oldRect.width + 32, caseMapViewport.clientWidth);
+    const oldScrollableHeight = Math.max(oldRect.height + 32, caseMapViewport.clientHeight);
+    const ratioX = (caseMapViewport.scrollLeft + anchorX) / oldScrollableWidth;
+    const ratioY = (caseMapViewport.scrollTop + anchorY) / oldScrollableHeight;
+
+    caseMapZoom = zoom;
+    caseMapImage.style.setProperty(
+      "--case-map-dialog-width",
+      caseMapBaseWidth() * caseMapZoom + "px",
+    );
+
+    // Force layout so the anchor can remain under the same point after zooming.
+    const newRect = caseMapImage.getBoundingClientRect();
+    const newScrollableWidth = Math.max(newRect.width + 32, caseMapViewport.clientWidth);
+    const newScrollableHeight = Math.max(newRect.height + 32, caseMapViewport.clientHeight);
+
+    if (options.resetPosition) {
+      caseMapViewport.scrollLeft = 0;
+      caseMapViewport.scrollTop = 0;
+    } else {
+      caseMapViewport.scrollLeft = ratioX * newScrollableWidth - anchorX;
+      caseMapViewport.scrollTop = ratioY * newScrollableHeight - anchorY;
+    }
+
+    updateCaseMapControls();
+  }
+
+  function resetCaseMapView() {
+    setCaseMapZoom(1, { resetPosition: true });
+  }
+
+  function openCaseMapDialog() {
+    if (!(caseMapDialog instanceof HTMLDialogElement)) return;
+    caseMapPreviousFocus = document.activeElement instanceof HTMLElement
+      ? document.activeElement
+      : null;
+    if (!caseMapDialog.open) caseMapDialog.showModal();
+    document.body.style.overflow = "hidden";
+    window.setTimeout(() => {
+      const initialZoom = window.matchMedia("(max-width: 590px)").matches ? 2 : 1;
+      setCaseMapZoom(initialZoom, { resetPosition: true });
+      caseMapViewport?.focus();
+    }, 0);
+  }
+
+  function closeCaseMapDialog() {
+    if (!(caseMapDialog instanceof HTMLDialogElement) || !caseMapDialog.open) return;
+    caseMapDialog.close();
+  }
+
+  function caseMapDistance(points) {
+    const [first, second] = points;
+    return Math.hypot(second.x - first.x, second.y - first.y);
+  }
+
+  function caseMapPointerCenter(points) {
+    const [first, second] = points;
+    return {
+      x: (first.x + second.x) / 2,
+      y: (first.y + second.y) / 2,
+    };
+  }
+
+  function finishCaseMapPointer(pointerId) {
+    caseMapPointers.delete(pointerId);
+    if (!(caseMapViewport instanceof HTMLElement)) return;
+
+    if (caseMapPointers.size === 1) {
+      const remaining = Array.from(caseMapPointers.values())[0];
+      caseMapPanStart = {
+        x: remaining.x,
+        y: remaining.y,
+        scrollLeft: caseMapViewport.scrollLeft,
+        scrollTop: caseMapViewport.scrollTop,
+      };
+    } else {
+      caseMapPanStart = null;
+    }
+
+    caseMapPinchStart = null;
+    if (!caseMapPointers.size) caseMapViewport.classList.remove("is-dragging");
+  }
+
+  caseMapPreview?.addEventListener("click", (event) => {
+    if (event.target instanceof HTMLElement && event.target.closest(".case-map-open")) return;
+    openCaseMapDialog();
+  });
+
+  caseMapOpenButton?.addEventListener("click", (event) => {
+    event.stopPropagation();
+    openCaseMapDialog();
+  });
+
+  caseMapCloseButton?.addEventListener("click", closeCaseMapDialog);
+
+  caseMapDialog?.addEventListener("close", () => {
+    document.body.style.removeProperty("overflow");
+    caseMapPointers.clear();
+    caseMapViewport?.classList.remove("is-dragging");
+    if (caseMapPreviousFocus?.isConnected) {
+      window.setTimeout(() => caseMapPreviousFocus.focus(), 0);
+    }
+  });
+
+  caseMapDialog?.addEventListener("click", (event) => {
+    if (event.target === caseMapDialog) closeCaseMapDialog();
+  });
+
+  caseMapZoomButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const action = button.dataset.mapZoom;
+      if (action === "in") setCaseMapZoom(caseMapZoom + caseMapZoomStep);
+      if (action === "out") setCaseMapZoom(caseMapZoom - caseMapZoomStep);
+      if (action === "reset") resetCaseMapView();
+    });
+  });
+
+  caseMapViewport?.addEventListener(
+    "wheel",
+    (event) => {
+      if (!event.ctrlKey && !event.metaKey) return;
+      event.preventDefault();
+      const rect = caseMapViewport.getBoundingClientRect();
+      setCaseMapZoom(
+        caseMapZoom + (event.deltaY < 0 ? caseMapZoomStep : -caseMapZoomStep),
+        { anchorX: event.clientX - rect.left, anchorY: event.clientY - rect.top },
+      );
+    },
+    { passive: false },
+  );
+
+  caseMapViewport?.addEventListener("dblclick", (event) => {
+    event.preventDefault();
+    const rect = caseMapViewport.getBoundingClientRect();
+    setCaseMapZoom(caseMapZoom === 1 ? 2 : 1, {
+      anchorX: event.clientX - rect.left,
+      anchorY: event.clientY - rect.top,
+      resetPosition: caseMapZoom !== 1,
+    });
+  });
+
+  caseMapViewport?.addEventListener("pointerdown", (event) => {
+    if (!(caseMapViewport instanceof HTMLElement)) return;
+    caseMapViewport.setPointerCapture?.(event.pointerId);
+    caseMapPointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
+    caseMapViewport.classList.add("is-dragging");
+
+    if (caseMapPointers.size === 1) {
+      caseMapPanStart = {
+        x: event.clientX,
+        y: event.clientY,
+        scrollLeft: caseMapViewport.scrollLeft,
+        scrollTop: caseMapViewport.scrollTop,
+      };
+    } else if (caseMapPointers.size === 2) {
+      const points = Array.from(caseMapPointers.values());
+      caseMapPinchStart = {
+        distance: Math.max(caseMapDistance(points), 1),
+        zoom: caseMapZoom,
+      };
+      caseMapPanStart = null;
+    }
+  });
+
+  caseMapViewport?.addEventListener("pointermove", (event) => {
+    if (!(caseMapViewport instanceof HTMLElement) || !caseMapPointers.has(event.pointerId)) return;
+    event.preventDefault();
+    caseMapPointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
+
+    if (caseMapPointers.size === 2 && caseMapPinchStart) {
+      const points = Array.from(caseMapPointers.values());
+      const distance = caseMapDistance(points);
+      const center = caseMapPointerCenter(points);
+      const rect = caseMapViewport.getBoundingClientRect();
+      setCaseMapZoom(caseMapPinchStart.zoom * (distance / caseMapPinchStart.distance), {
+        anchorX: center.x - rect.left,
+        anchorY: center.y - rect.top,
+      });
+      return;
+    }
+
+    if (caseMapPointers.size === 1 && caseMapPanStart && caseMapZoom > 1) {
+      caseMapViewport.scrollLeft =
+        caseMapPanStart.scrollLeft - (event.clientX - caseMapPanStart.x);
+      caseMapViewport.scrollTop =
+        caseMapPanStart.scrollTop - (event.clientY - caseMapPanStart.y);
+    }
+  });
+
+  ["pointerup", "pointercancel", "lostpointercapture"].forEach((eventName) => {
+    caseMapViewport?.addEventListener(eventName, (event) => {
+      finishCaseMapPointer(event.pointerId);
+    });
+  });
+
+  caseMapViewport?.addEventListener("keydown", (event) => {
+    if (event.key === "+" || event.key === "=") {
+      event.preventDefault();
+      setCaseMapZoom(caseMapZoom + caseMapZoomStep);
+    } else if (event.key === "-" || event.key === "_") {
+      event.preventDefault();
+      setCaseMapZoom(caseMapZoom - caseMapZoomStep);
+    } else if (event.key === "0" || event.key.toLowerCase() === "f") {
+      event.preventDefault();
+      resetCaseMapView();
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    if (caseMapDialog instanceof HTMLDialogElement && caseMapDialog.open) {
+      setCaseMapZoom(caseMapZoom);
+    }
+  });
+
   document
     .querySelector(".footer-actions button:first-of-type")
     ?.addEventListener("click", copyLink);
